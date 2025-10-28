@@ -2979,3 +2979,60 @@ body.is-menu-visible #menu {
 	font-size: 1rem;   /* Aumentado desde 0.9rem */
 	padding: 0 1.2rem; /* Un poco más de separación para el nuevo tamaño */
 }
+
+/*
+-------------------------------------------------
+ --- MEJORAS ESTÉTICAS PARA VISTA MÓVIL ---
+-------------------------------------------------
+*/
+
+/* Soluciona el espaciado del formulario y los servicios.
+  La plantilla apila columnas a 980px, pero solo 
+  añadía espacio vertical por debajo de 736px.
+  Esta regla arregla el espaciado para tablets y 
+  móviles anchos.
+*/
+@media screen and (max-width: 980px) {
+	
+	/* 1. Añade espacio vertical a las columnas de 'Servicios' */
+	.row.gtr-50 {
+		margin-top: -1.5rem;
+	}
+	.row.gtr-50 > * {
+		padding-top: 1.5rem;
+	}
+
+	/* 2. Aumenta el espacio entre los campos del formulario */
+	.row.gtr-uniform {
+		margin-top: -1.5rem;
+	}
+	.row.gtr-uniform > * {
+		padding-top: 1.5rem; /* Un poco más de 1.25rem para que respire */
+	}
+}
+
+
+/* Soluciona el espaciado del Footer en móviles
+*/
+@media screen and (max-width: 736px) {
+	
+	/* 3. Añade separación entre las secciones apiladas del footer */
+	#footer .content section {
+		padding-bottom: 2.5rem; /* Espacio generoso entre cada bloque */
+	}
+	#footer .content section:last-child {
+		padding-bottom: 0; /* Sin espacio extra al final */
+	}
+}
+
+/* 4. Añade espacio a los títulos H3/H4 dentro del footer 
+   (Esto se aplica a PC y móvil, ya que mejora ambas vistas) */
+#footer .content section h3,
+#footer .content section h4 {
+	margin-bottom: 1.25rem; /* Espacio entre el título y la lista/párrafo de abajo */
+}
+
+/* 5. Añade espacio extra entre 'Enlaces Rápidos' y 'Redes' */
+#footer .content section h4 + h4 {
+	margin-top: 2rem; /* Espacio vertical entre los dos títulos */
+}
