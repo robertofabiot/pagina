@@ -2901,3 +2901,81 @@ body.is-menu-visible #menu {
 .service-image-link:hover {
 	text-decoration: none;
 }
+
+/*
+/*
+-------------------------------------------------
+ CSS para el Header de Escritorio (CORREGIDO)
+-------------------------------------------------
+*/
+
+/* 1. Estilos para la lista de enlaces (esto ya lo tenías) */
+#header > nav > ul.links {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+	display: flex;
+	height: inherit;
+	line-height: inherit;
+}
+
+/* 2. Ocultar el botón "Menu" en escritorio (esto ya lo tenías) */
+#header > nav > a[href="#menu"] {
+	display: none;
+}
+
+/* --- INICIO DE LA CORRECCIÓN --- 
+*/
+
+/* 3. Estilo para CADA 'li' (el contenedor del enlace) */
+#header > nav > ul.links > li {
+	padding-left: 0; /* Limpia el padding por defecto de la lista */
+}
+
+/* 4. Estilo para CADA 'a' (el enlace en sí) */
+#header > nav > ul.links > li > a {
+	color: #ffffff;         /* Color blanco, como el logo */
+	padding: 0 1rem;       /* SEPARACIÓN entre enlaces (puedes ajustar 1rem) */
+	text-decoration: none;   /* Sin subrayado */
+	display: inline-block;
+	font-size: 0.9rem;     /* Un poco más pequeño para que quepa bien */
+	transition: color 0.2s ease-in-out; /* Transición suave */
+}
+
+/* 5. Estilo de hover (se atenúa un poco al pasar el cursor) */
+#header > nav > ul.links > li > a:hover {
+	color: rgba(255, 255, 255, 0.75); /* Blanco semitransparente */
+}
+
+/* --- FIN DE LA CORRECCIÓN --- 
+*/
+
+
+/* -------------------------------------------------
+ VISTA MÓVIL (breakpoint de 980px de tu plantilla)
+-------------------------------------------------
+*/
+@media screen and (max-width: 980px) {
+
+	/* 6. Ocultar la lista de escritorio (esto ya lo tenías) */
+	#header > nav > ul.links {
+		display: none;
+	}
+
+	/* 7. Mostrar el botón "Menu" (esto ya lo tenías) */
+	#header > nav > a[href="#menu"] {
+		display: inline-block;
+	}
+}
+/* --- Aumentar tamaño del texto del Header (Vista PC) --- */
+
+/* 1. Aumentar el logo (el que dice "Transporte Divino Niño") */
+#header > .logo {
+	font-size: 1.15rem; /* Aumentado desde 1rem */
+}
+
+/* 2. Aumentar los enlaces de navegación (Inicio, Perfil, etc.) */
+#header > nav > ul.links > li > a {
+	font-size: 1rem;   /* Aumentado desde 0.9rem */
+	padding: 0 1.2rem; /* Un poco más de separación para el nuevo tamaño */
+}
