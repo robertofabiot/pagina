@@ -3161,6 +3161,10 @@ body.is-menu-visible #menu {
 	
 	/* Anula el centrado de texto de otras secciones */
 	text-align: left; 
+	
+	/* --- CÓDIGO AÑADIDO: Reduce el espaciado vertical --- */
+	padding-top: 4rem;    /* Mitad del original (8rem) */
+	padding-bottom: 3rem;  /* Mitad del original (6rem) */
 }
 
 /* 2. Asegura que los títulos sean blancos */
@@ -3233,4 +3237,47 @@ body.is-menu-visible #menu {
         padding-left: 1.5rem; /* Restaura el padding por defecto para evitar sangrías no deseadas */
         padding-right: 1.5rem;
     }
+}
+
+/* --- Ajuste de espaciado Misión/Visión (Responsivo) --- */
+@media screen and (max-width: 1280px) {
+	.feature-section {
+		padding-top: 2rem; /* Mitad del original (4rem) */
+		padding-bottom: 1rem; /* Mitad del original (2rem) */
+	}
+}
+@media screen and (max-width: 736px) {
+	.feature-section {
+		padding-top: 1.5rem; /* Mitad del original (3rem) */
+		padding-bottom: 0.5rem; /* Mitad del original (1rem) */
+	}
+}
+@media screen and (max-width: 480px) {
+	.feature-section {
+		padding-top: 1rem; /* Mitad del original (2rem) */
+		padding-bottom: 0; /* Original era 0.1rem, 0 está bien */
+	}
+}
+
+/* --- Contenedor Responsivo para Video de YouTube --- */
+
+.video-responsive {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding-top: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
+	
+	/* Estilos para que coincida con la plantilla */
+	border-radius: 4px; 
+	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025);
+}
+
+.video-responsive iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
 }
