@@ -3062,3 +3062,88 @@ body.is-menu-visible #menu {
 		padding: 1.5rem;
 	}
 }
+
+/* --- CSS para igualar altura de Tarjetas de Valores --- */
+
+/* 1. Da un tamaño fijo y espaciado a tus íconos */
+.valor-icon {
+	width: 64px;    /* Ajusta este tamaño si lo deseas */
+	height: 64px;   /* Mismo valor que el ancho */
+	margin-bottom: 1.5rem; /* Espacio entre el ícono y el título */
+	object-fit: contain;   /* Asegura que la imagen no se deforme */
+}
+
+/* 2. Fija la altura de los títulos (la clave de la solución) */
+.highlights .content h3 {
+	/* * Establecemos una altura mínima que pueda contener 2 líneas de texto.
+	 * Tu h3 tiene font-size: 1.25rem y line-height: 1.5.
+	 * (1.25rem * 1.5) * 2 líneas = 3.75rem
+	*/
+	min-height: 3.75rem; 
+	
+	/* * Usamos flexbox para centrar verticalmente
+	 * los títulos de una sola línea (como "Lealtad")
+	 * dentro de ese espacio de 3.75rem.
+	*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* * 3. Asegura que las cajas se estiren (esto ya lo hace la plantilla, 
+ * pero es bueno tenerlo como refuerzo).
+*/
+.highlights .content {
+	height: 100%;
+}
+
+/* --- Correcciones para la cuadrícula de Valores (Revisado) --- */
+
+/* 1. Arregla el espaciado vertical (Igual que antes) */
+.highlights > :nth-last-child(-n + 3) {
+	padding-bottom: 1.5rem;
+}
+.highlights > :last-child {
+	padding-bottom: 0;
+}
+
+/* 2. Centra el último elemento (Colaboración) */
+
+/* A. VISTA PC (3 columnas) */
+.highlights > :last-child:nth-child(3n + 1) {
+	
+	/* a) Le da el 'padding-left' de un item central */
+	padding-left: 1.5rem;
+	
+	/* b) Le da el 'width' de un item central */
+	width: calc(33.333333% + 1rem);
+	
+	/* c) Lo mueve por el ancho de la primera columna */
+	margin-left: calc(33.333333% + -0.5rem);
+}
+
+/* B. VISTA TABLET (2 columnas) */
+@media screen and (max-width: 980px) {
+	
+	/* a) Quita los estilos de PC para que no interfieran */
+	.highlights > :last-child:nth-child(3n + 1) {
+		padding-left: 0; /* Restaura el padding de tablet */
+		width: calc(50% + 0rem); /* Restaura el ancho de tablet */
+		margin-left: 0;
+	}
+	
+	/* b) Aplica el centrado de tablet (si el último item es impar) */
+	.highlights > :last-child:nth-child(2n + 1) {
+		margin-left: 25%;
+	}
+}
+
+/* C. VISTA MÓVIL (1 columna) */
+@media screen and (max-width: 736px) {
+	
+	/* a) Quita los estilos de tablet */
+	.highlights > :last-child:nth-child(2n + 1) {
+		margin-left: 0;
+	}
+	/* No se necesita centrado, ya es una sola columna */
+}
