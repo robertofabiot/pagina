@@ -3147,3 +3147,90 @@ body.is-menu-visible #menu {
 	}
 	/* No se necesita centrado, ya es una sola columna */
 }
+
+/*
+-------------------------------------------------
+ --- Sección Misión y Visión (Fondo Verde) ---
+-------------------------------------------------
+*/
+
+/* 1. Define el fondo verde y el color de texto claro */
+.feature-section {
+	background-color: #386737; /* Tu verde principal */
+	color: rgba(255, 255, 255, 0.75); /* Texto claro */
+	
+	/* Anula el centrado de texto de otras secciones */
+	text-align: left; 
+}
+
+/* 2. Asegura que los títulos sean blancos */
+.feature-section h2,
+.feature-section h3,
+.feature-section strong {
+	color: #ffffff;
+}
+
+/* 3. Utilidad para centrar verticalmente imagen y texto */
+/* (La añadí al HTML en 'row gtr-50 align-items-center') */
+.align-items-center {
+	align-items: center;
+}
+
+/* 4. Mejora el espaciado en móvil/tablet */
+@media screen and (max-width: 980px) {
+	.feature-section .row.gtr-50 > * {
+		/* Da más "aire" entre la imagen y el texto cuando se apilan */
+		padding-top: 2rem; 
+	}
+	.feature-section .row.gtr-50 > *:first-child {
+		padding-top: 0; /* El primer elemento no necesita espacio superior */
+	}
+}
+
+/*
+-------------------------------------------------
+ --- Alineación y Sangría Misión/Visión ---
+-------------------------------------------------
+*/
+
+/* Alineación de texto a la derecha SOLO en escritorio/tablet grande */
+@media screen and (min-width: 981px) {
+    .text-right-desktop {
+        text-align: right;
+    }
+}
+
+/* Alineación de texto a la izquierda SOLO en escritorio/tablet grande */
+@media screen and (min-width: 981px) {
+    .text-left-desktop {
+        text-align: left;
+    }
+}
+
+/* Ajuste de márgenes para la "sangría" visual en escritorio */
+@media screen and (min-width: 981px) {
+    /* Misión: Empuja el texto más hacia la derecha */
+    .feature-section:nth-of-type(1) .col-6:first-child { /* Selecciona el primer texto (Misión) */
+        padding-right: 4rem; /* Más espacio a la derecha del texto */
+        padding-left: 2rem; /* Reduce un poco el padding izquierdo si lo tiene */
+    }
+
+    /* Visión: Empuja el texto más hacia la izquierda */
+    .feature-section:nth-of-type(2) .col-6:last-child { /* Selecciona el segundo texto (Visión) */
+        padding-left: 4rem; /* Más espacio a la izquierda del texto */
+        padding-right: 2rem; /* Reduce un poco el padding derecho si lo tiene */
+    }
+}
+
+/* Ajustes para tablet y móvil: Asegura que todo el texto vuelva a la izquierda */
+@media screen and (max-width: 980px) {
+    .text-right-desktop,
+    .text-left-desktop {
+        text-align: left; /* Restaura la alineación izquierda para móviles */
+    }
+    .feature-section .col-6:first-child,
+    .feature-section .col-6:last-child {
+        padding-left: 1.5rem; /* Restaura el padding por defecto para evitar sangrías no deseadas */
+        padding-right: 1.5rem;
+    }
+}
