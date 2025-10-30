@@ -3036,3 +3036,29 @@ body.is-menu-visible #menu {
 #footer .content section h4 + h4 {
 	margin-top: 2rem; /* Espacio vertical entre los dos títulos */
 }
+
+/* --- Estilo de Ficha/Caja para "Acerca de Nosotros" --- */
+/*
+ * Esto restaura el estilo de fondo blanco y sombra 
+ * que te gustó, pero lo mantiene 100% ancho (horizontal).
+*/
+.content-box {
+	background: #ffffff;
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025);
+	padding: 3rem;
+	width: 100%; /* Asegura que ocupe todo el ancho */
+	text-align: left; /* Asegura que el texto interior esté alineado a la izquierda */
+}
+
+/* Ajustes para que la ficha se vea bien en móvil */
+@media screen and (max-width: 980px) {
+	.content-box {
+		padding: 2rem;
+	}
+}
+@media screen and (max-width: 480px) {
+	.content-box {
+		padding: 1.5rem;
+	}
+}
