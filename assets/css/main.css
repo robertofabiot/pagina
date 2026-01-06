@@ -3347,3 +3347,74 @@ body.is-menu-visible #menu {
         height: 200px; /* Altura fija para la imagen en móvil */
     }
 }
+
+/* --- Estilos para el Carrusel de Imágenes --- */
+
+.carousel-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* Ocultar las imágenes por defecto */
+.carousel-slide {
+    display: none;
+}
+
+/* Animación de desvanecimiento */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Botones Siguiente y Anterior */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+}
+
+/* Posición del botón derecho */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Hover en botones */
+.prev:hover, .next:hover {
+    background-color: rgba(56, 103, 55, 0.8); /* Tu color verde */
+}
+
+/* Puntos indicadores (Dots) */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #386737; /* Tu color verde */
+}
