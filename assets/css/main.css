@@ -3281,3 +3281,69 @@ body.is-menu-visible #menu {
 	width: 100%;
 	height: 100%;
 }
+/* --- Estilos para la Tarjeta de Servicio Horizontal --- */
+
+.service-card {
+    display: flex; /* Pone la imagen y el texto lado a lado */
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+    overflow: hidden; /* Asegura que la imagen no se salga de las esquinas redondeadas */
+    height: 100%; /* Para que todas las tarjetas de la fila tengan la misma altura */
+    transition: transform 0.2s; /* Efecto suave al pasar el mouse */
+    margin-bottom: 2rem;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Pequeña animación al pasar el mouse */
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+}
+
+.service-card .card-image {
+    width: 40%; /* La imagen ocupa el 40% del ancho */
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    display: block;
+}
+
+.service-card .card-content {
+    width: 60%; /* El texto ocupa el 60% restante */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Alineación a la izquierda como en el boceto */
+}
+
+.service-card .card-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #386737;
+    font-weight: 700; /* AÑADIDO: Esto hace que el título sea negrita */
+}
+
+.service-card .card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Ajustes para móviles: Las tarjetas se vuelven verticales */
+@media screen and (max-width: 480px) {
+    .service-card {
+        flex-direction: column; /* Apila imagen arriba y texto abajo */
+    }
+    .service-card .card-image, 
+    .service-card .card-content {
+        width: 100%; /* Ocupan todo el ancho */
+    }
+    .service-card .card-image {
+        height: 200px; /* Altura fija para la imagen en móvil */
+    }
+}
