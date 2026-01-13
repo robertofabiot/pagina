@@ -43,3 +43,41 @@
 			});
 
 })(jQuery);
+
+/* --- Lógica de Envío de Formulario con EmailJS --- */
+
+(function($) {
+
+    // Esperar a que el DOM esté listo
+    $(function() {
+        
+        // Seleccionamos el formulario por su ID
+        $('#contact-form').on('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            // Referencia al botón para cambiarle el texto
+            var btn = $(this).find('button[type="submit"]');
+            var btnText = btn.text();
+            
+            // Cambiar texto a "Enviando..."
+            btn.text('Enviando...').addClass('disabled');
+
+            // Parámetros: Service ID, Template ID, Elemento Formulario (this)
+            // REEMPLAZA LOS IDs CON LOS TUYOS
+            emailjs.sendForm('service_h8nd5qy', 'template_1qdckht', this)
+                .then(function() {
+                    // Éxito
+                    alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+                    $('#contact-form')[0].reset(); // Limpia el formulario
+                    btn.text(btnText).removeClass('disabled'); // Restaura el botón
+                }, function(error) {
+                    // Error
+                    console.log('FAILED...', error);
+                    alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+                    btn.text(btnText).removeClass('disabled');
+                });
+        });
+
+    });
+
+})(jQuery);

@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("VhRTIEtvZ8h1_bUJR");
+   })();
+</script>
 </head>
 <body class="is-preload">
 
@@ -121,32 +128,27 @@
 					<p>Envíanos un mensaje y te responderemos a la brevedad.</p>
 				</header>
 				
-				<form method="post" action="#">
-					<div class="row gtr-uniform">
-						
-						<div class="col-6 col-12-medium">
-							<label for="contact-name">Nombre Completo</label>
-							<input type="text" name="contact-name" id="contact-name" value="" placeholder="Tu Nombre Completo">
-						</div>
-						
-						<div class="col-6 col-12-medium">
-							<label for="contact-email">Correo</label>
-							<input type="email" name="contact-email" id="contact-email" value="" placeholder="tu@correo.com">
-						</div>
-						
-						<div class="col-12">
-							<label for="contact-message">Mensaje</label>
-							<textarea name="contact-message" id="contact-message" placeholder="Escribe tu mensaje aquí..." rows="6"></textarea>
-						</div>
-						
-						<div class="col-12">
-							<ul class="actions special">
-								<li><input type="submit" value="Enviar Mensaje" class="primary"></li>
-							</ul>
-						</div>
-						
-					</div>
-				</form>
+<form id="contact-form">
+    <div class="row gtr-uniform">
+        <div class="col-6 col-12-medium">
+            <label for="contact-name">Nombre</label>
+            <input type="text" name="nombre" id="contact-name" required>
+        </div>
+        <div class="col-6 col-12-medium">
+            <label for="contact-email">Correo</label>
+            <input type="email" name="email" id="contact-email" required>
+        </div>
+        <div class="col-12">
+            <label for="contact-message">Mensaje</label>
+            <textarea name="mensaje" id="contact-message" rows="6" required></textarea>
+        </div>
+        <div class="col-12">
+            <ul class="actions special">
+                <li><button type="submit" class="primary">Enviar Mensaje</button></li>
+            </ul>
+        </div>
+    </div>
+</form>
 				
 			</div>
 		</section>
