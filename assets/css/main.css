@@ -3466,3 +3466,17 @@ body.is-menu-visible #menu {
     width: 100%;
     display: block;
 }
+
+/* --- Corrección de Legibilidad "Nuestra Misión" en Móvil --- */
+
+@media screen and (max-width: 736px) {
+    #cta {
+        /* Cambiamos el degradado suave del PC por uno mucho más oscuro y opaco (85%).
+           Usamos tu verde corporativo (RGB: 56, 103, 55) para mantener la identidad.
+        */
+        background-image: linear-gradient(rgba(56, 103, 55, 0.85), rgba(56, 103, 55, 0.85)), url("../../images/cta01.png");
+        
+        /* Aseguramos que la posición sea la mejor posible */
+        background-position: center;
+    }
+}
