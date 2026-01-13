@@ -3480,3 +3480,39 @@ body.is-menu-visible #menu {
         background-position: center;
     }
 }
+
+/* --- Correcciones Específicas para Móvil (Perfil) --- */
+
+@media screen and (max-width: 980px) {
+    /* 1. Centrar la última tarjeta de Valores */
+    /* Usamos justify-content en el contenedor padre. 
+       Esto hace que si sobra espacio (como en la última fila), 
+       los elementos se vayan al centro automáticamente. */
+    .highlights {
+        justify-content: center;
+    }
+
+    /* 2. Arreglar el espaciado superior de Misión */
+    /* Aumentamos el padding superior para que el título "baje" 
+       y no se vea pegado al borde verde. */
+    .feature-section {
+        padding-top: 4rem; /* Antes era 1.5rem, lo subimos a 4rem */
+    }
+}
+
+/* --- Correcciones Finales de Móvil (Tarjeta y Video) --- */
+
+/* 1. Arreglar el ancho de la tarjeta "Colaboración" en móvil */
+/* Usamos !important para asegurar que sobreescriba cualquier regla de centrado anterior */
+@media screen and (max-width: 736px) {
+    .highlights > :last-child {
+        width: calc(100% + 2rem) !important; /* Ocupa todo el ancho disponible (+ márgenes del tema) */
+        margin-left: 0 !important;             /* Quita cualquier empuje a la derecha */
+        padding-left: 1rem !important;         /* Restaura el relleno interno normal */
+    }
+}
+
+/* 2. Separar el video del footer */
+.video-responsive {
+    margin-bottom: 4rem; /* Empuja el footer hacia abajo */
+}
