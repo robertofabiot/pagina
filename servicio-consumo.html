@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Servicio - Transporte Divino Niño</title>
+    <title>Productos Varios y Consumo - Transporte Divino Niño</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-8 col-12-medium">
                     <header class="special" style="text-align: left; margin-bottom: 0;">
-                        <h1 style="color: #ffffff; font-size: 3rem;">Título del Servicio</h1>
+                        <h1 style="color: #ffffff; font-size: 3rem;">Productos Varios y Consumo</h1>
                         <p style="color: rgba(255, 255, 255, 0.8);">Descripción corta o subtítulo del servicio.</p>
                     </header>
                 </div>
@@ -64,12 +64,18 @@
                 
                 <div class="col-6 col-12-medium">
                     <h3>Detalles del Servicio</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis aliquet mi. Nulla facilisi. Sed non metus justo. Phasellus nec urna ut diam condimentum feugiat. Integer a neque finibus, dapibus sem a, euismod mi. Suspendisse potenti.</p>
-                    <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.</p>
                     <ul>
-                        <li>Característica importante uno.</li>
-                        <li>Característica importante dos.</li>
-                        <li>Beneficio clave para el cliente.</li>
+                        <li>Transporte de Lubricantes</li>
+                        <li>llantas</li>
+                        <li>muebles</li>
+                        <li>materiales de construcción</li>
+                        <li>granos básicos y perecederos</li>
+                    </ul>
+                    <hr>
+                    <h4>¿Por qué elegirnos?</h4>
+                    <p style="font-size: 0.95rem;">Garantizamos el traslado de su mercadería cumpliendo con los más altos estándares de higiene, seguridad y normativas nacionales vigentes. Nuestra prioridad es la integridad de su carga y la puntualidad en la entrega.</p>
+                    <ul class="actions">
+                        <li><a href="#contact-form" class="button primary small">Cotizar servicio</a></li>
                     </ul>
                 </div>
 
@@ -157,12 +163,10 @@
             <section>
                 <h4>Servicios</h4>
                 <ul class="alt">
-                    <li><a href="servicio_generic.html">servicio1</a></li>
-                    <li><a href="servicio_generic.html">servicio2</a></li>
-                    <li><a href="servicio_generic.html">servicio3</a></li>
-                    <li><a href="servicio_generic.html">servicio4</a></li>
-                    <li><a href="servicio_generic.html">servicio5</a></li>
-                    <li><a href="servicio_generic.html">servicio6</a></li>
+                    <li><a href="servicio-hazmat.html">Sustancias Peligrosas</a></li>
+                    <li><a href="servicio-consumo.html">Productos Varios</a></li>
+                    <li><a href="servicio-pesado.html">Transporte Pesado</a></li>
+                    <li><a href="servicio-ligero.html">Distribución Ligera</a></li>
                 </ul>
             </section>
 
@@ -193,35 +197,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("carousel-slide");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
-        }
-    </script>
 
 </body>
 </html>
