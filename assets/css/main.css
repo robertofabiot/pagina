@@ -138,7 +138,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 
 body:before {
     content: ' ';
-    background-image: url(../../images/bg.jpg);
+    background-image: url(../../images/bg2.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -723,7 +723,7 @@ body.is-preload #banner:before { opacity: 1; }
 .highlights > :nth-last-child(-n + 3), .testimonials > :nth-last-child(-n + 3) { padding-bottom: 1.5rem; }
 .highlights > :nth-child(3n + 1), .testimonials > :nth-child(3n + 1) { padding-left: 0; width: calc(33.333333% - 0.5rem); }
 .highlights > :nth-child(3n), .testimonials > :nth-child(3n) { padding-right: 0; width: calc(33.333333% - 0.5rem); }
-.highlights > :last-child, .testimonials > :last-child { padding-bottom: 0; }
+/* El padding-bottom: 0; en el last-child fue removido porque estiraba el height del contenido */
 
 /* Corrección de la cuadrícula: Centrar el último elemento (PC) */
 .highlights > :last-child:nth-child(3n + 1) {
