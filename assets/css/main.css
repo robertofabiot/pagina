@@ -453,7 +453,9 @@ header.special p {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    background: #111111;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: rgba(255, 255, 255, 0.5);
     cursor: default;
     height: 3.25rem;
@@ -755,7 +757,7 @@ body.is-preload #banner:before { opacity: 1; }
 #cta {
     background-color: #386737;
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(27, 206, 105, 0.25), rgba(27, 206, 105, 0.25)), url(../../images/cta01.png);
+    background-image: linear-gradient(rgba(27, 206, 105, 0.25), rgba(27, 206, 105, 0.25)), url(../../images/cta02.png);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -848,13 +850,10 @@ body.is-preload #banner:before { opacity: 1; }
     max-width: 100%;
     width: auto !important;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 .cliente-logo img:hover {
-    filter: none;
-    opacity: 1;
+    transform: scale(1.05);
 }
 
 /* Tarjeta de Servicio Horizontal */
@@ -1059,4 +1058,101 @@ body.is-preload #banner:before { opacity: 1; }
     .service-card { flex-direction: column; }
     .service-card .card-image, .service-card .card-content { width: 100%; }
     .service-card .card-image { height: 200px; }
+}
+
+/* ==========================================================================
+   UI/UX Modernizations (Glassmorphism, Hover Effects, Scroll Reveal, WhatsApp)
+   ========================================================================== */
+
+/* 1. Scroll Reveal Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Reactive Cards (Valores & Contacto) */
+.highlights .content, .contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.highlights .content:hover, .contact-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. Button Glow and Lift */
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary {
+    transition: all 0.3s ease;
+}
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+button.primary:hover,
+.button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27, 206, 105, 0.4);
+}
+
+/* 4. Floating WhatsApp Button */
+#whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    transition: all 0.3s ease;
+    animation: pulse-wa 2s infinite;
+    text-decoration: none;
+    border-bottom: none;
+}
+#whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    animation: none;
+}
+@keyframes pulse-wa {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* 5. Destacar el botón de enviar mensaje (estado estático) */
+#contact-form button[type="submit"] {
+    animation: button-breathing 2.5s infinite ease-in-out;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: #1d351c !important; /* Verde corporativo oscuro */
+    color: #ffffff !important;
+    border: 2px solid #1bce69 !important; /* Borde llamativo */
+    box-shadow: none !important;
+}
+@keyframes button-breathing {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+#contact-form button[type="submit"]:hover {
+    animation: none;
+    background-color: #1bce69 !important;
+    color: #ffffff !important;
+    border-color: #1bce69 !important;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(27, 206, 105, 0.4) !important;
 }

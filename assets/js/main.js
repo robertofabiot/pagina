@@ -115,3 +115,31 @@
         }
     }
 })();
+
+/* --- Lógica de Scroll Reveal --- */
+(function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        // Seleccionamos elementos que queremos animar
+        const elementsToReveal = document.querySelectorAll('.service-card, .highlights section, .contact-card, .feature-section .col-6, #cta .inner');
+        
+        // Añadimos la clase base
+        elementsToReveal.forEach(el => el.classList.add('reveal-on-scroll'));
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        elementsToReveal.forEach(el => observer.observe(el));
+    });
+})();
