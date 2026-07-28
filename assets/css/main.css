@@ -138,7 +138,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 
 body:before {
     content: ' ';
-    background-image: url(../../images/bg2.jpeg);
+    background-image: url(../../images/backgrounds/bg2.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -638,7 +638,7 @@ body.is-menu-visible #menu {
     display: flex;
     justify-content: center;
     background-color: #111111;
-    background-image: url("../../images/banner.jpg");
+    background-image: url("../../images/banners/banner.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -686,7 +686,7 @@ body.is-menu-visible #menu {
 #heading {
     align-items: center; display: flex; justify-content: center;
     background-color: #111111;
-    background-image: linear-gradient(rgba(17, 17, 17, 0.25), rgba(17, 17, 17, 0.25)), url("../../images/banner.jpg");
+    background-image: linear-gradient(rgba(17, 17, 17, 0.25), rgba(17, 17, 17, 0.25)), url("../../images/banners/banner.jpg");
     background-position: center; background-size: cover;
     height: 15rem !important; min-height: 15rem;
     position: relative; text-align: center; width: 100%;
@@ -757,7 +757,7 @@ body.is-preload #banner:before { opacity: 1; }
 #cta {
     background-color: #386737;
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(27, 206, 105, 0.25), rgba(27, 206, 105, 0.25)), url(../../images/cta02.png);
+    background-image: linear-gradient(rgba(27, 206, 105, 0.25), rgba(27, 206, 105, 0.25)), url(../../images/backgrounds/cta02.png);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1026,7 +1026,7 @@ body.is-preload #banner:before { opacity: 1; }
     #footer { padding: 3rem 0 1rem 0; }
     #footer .content section { width: 100%; padding-bottom: 2.5rem; }
     #footer .content section:last-child { padding-left: 0; padding-bottom: 0; }
-    #cta { background-image: linear-gradient(rgba(56, 103, 55, 0.85), rgba(56, 103, 55, 0.85)), url("../../images/cta01.png"); background-position: center; }
+    #cta { background-image: linear-gradient(rgba(56, 103, 55, 0.85), rgba(56, 103, 55, 0.85)), url("../../images/backgrounds/cta01.png"); background-position: center; }
     
     /* Highlights & Testimonials (1 column) */
     .highlights > *, .testimonials > * { width: calc(100% + 2rem); padding: 1rem; }
