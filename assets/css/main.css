@@ -260,10 +260,10 @@ input[type="checkbox"]:focus + label:before, input[type="radio"]:focus + label:b
     box-shadow: 0 0 0 1px #386737;
 }
 
-::-webkit-input-placeholder { color: #bbbbbb !important; opacity: 1.0; }
-:-moz-placeholder { color: #bbbbbb !important; opacity: 1.0; }
-::-moz-placeholder { color: #bbbbbb !important; opacity: 1.0; }
-:-ms-input-placeholder { color: #bbbbbb !important; opacity: 1.0; }
+::-webkit-input-placeholder { color: #666666 !important; opacity: 1.0; font-style: italic; }
+:-moz-placeholder { color: #666666 !important; opacity: 1.0; font-style: italic; }
+::-moz-placeholder { color: #666666 !important; opacity: 1.0; font-style: italic; }
+:-ms-input-placeholder { color: #666666 !important; opacity: 1.0; font-style: italic; }
 
 input[type="submit"], input[type="reset"], input[type="button"], button, .button {
     appearance: none;
