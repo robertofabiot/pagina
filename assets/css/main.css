@@ -638,8 +638,7 @@ body.is-menu-visible #menu {
     display: flex;
     justify-content: center;
     background-color: #111111;
-    background-image: url("../../images/servicios/pesado/pesado1.png");
-    background-position: center;
+        background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 35rem !important;
@@ -686,8 +685,7 @@ body.is-menu-visible #menu {
 #heading {
     align-items: center; display: flex; justify-content: center;
     background-color: #111111;
-    background-image: linear-gradient(rgba(17, 17, 17, 0.25), rgba(17, 17, 17, 0.25)), url("../../images/servicios/pesado/pesado1.png");
-    background-position: center; background-size: cover;
+        background-position: center; background-size: cover;
     height: 15rem !important; min-height: 15rem;
     position: relative; text-align: center; width: 100%;
 }
