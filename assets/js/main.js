@@ -81,3 +81,65 @@
     });
 
 })(jQuery);
+
+/* --- Lógica del Carrusel --- */
+(function() {
+    let slides = document.getElementsByClassName("carousel-slide");
+    if (slides.length === 0) return;
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    window.plusSlides = function(n) {
+        showSlides(slideIndex += n);
+    };
+
+    window.currentSlide = function(n) {
+        showSlides(slideIndex = n);
+    };
+
+    function showSlides(n) {
+        let i;
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        if (dots.length > 0) {
+            dots[slideIndex-1].className += " active";
+        }
+    }
+})();
+
+/* --- Lógica de Scroll Reveal --- */
+(function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        // Seleccionamos elementos que queremos animar
+        const elementsToReveal = document.querySelectorAll('.service-card, .highlights section, .contact-card, .feature-section .col-6, #cta .inner');
+        
+        // Añadimos la clase base
+        elementsToReveal.forEach(el => el.classList.add('reveal-on-scroll'));
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        elementsToReveal.forEach(el => observer.observe(el));
+    });
+})();
