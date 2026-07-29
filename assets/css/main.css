@@ -1106,15 +1106,15 @@ button.primary:hover,
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background-color: #25d366;
     color: white !important;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 35px;
+    font-size: 45px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 10000;
     transition: all 0.3s ease;
