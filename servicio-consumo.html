@@ -208,5 +208,29 @@
         <i class="icon fa-whatsapp"></i>
     </a>
 
+
+    <!-- Theme Toggle -->
+    <div id="theme-toggle" title="Cambiar Tema">
+        <i class="icon fa-adjust"></i>
+    </div>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Cargar preferencia
+        if(localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-theme');
+        }
+        
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            if(body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
 </body>
 </html>
