@@ -983,7 +983,7 @@ body.is-preload #banner:before { opacity: 1; }
     background-color: #bbb; border-radius: 50%; display: inline-block;
     transition: background-color 0.6s ease;
 }
-.active, .dot:hover { background-color: #386737; }
+.dot.active, .dot:hover { background-color: #386737; }
 
 
 /* ==========================================================================
@@ -1470,4 +1470,16 @@ body.light-theme #footer img[alt="Transporte Divino Niño"] {
     background-color: transparent;
     padding: 0;
     box-shadow: none;
+}
+
+/* Active Nav Link Styling */
+#header > nav > ul.links > li.active > a {
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 2px solid #1bce69;
+}
+
+body.light-theme #header > nav > ul.links > li.active > a {
+    color: #386737 !important;
+    border-bottom: 2px solid #386737;
 }
