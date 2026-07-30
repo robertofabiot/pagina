@@ -667,6 +667,20 @@ body.is-menu-visible #menu {
 #banner a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
 #banner a:hover { color: #ffffff; }
 
+#service-banner {
+    background-color: #1d351c;
+    padding: 4rem 0;
+}
+#service-banner .service-banner-header {
+    text-align: center; margin-bottom: 0;
+}
+#service-banner .service-banner-header h1 {
+    color: #ffffff;
+}
+#service-banner .service-banner-header p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
 #banner video {
     transform: translateX(50%) translateY(50%);
     bottom: 50%; height: auto; min-height: 100%; min-width: 100%;
@@ -875,10 +889,21 @@ body.is-preload #banner:before { opacity: 1; }
 .service-card .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .service-card .card-content {
     width: 60%; padding: 1.5rem;
-    display: flex; flex-direction: column; justify-content: center; text-align: left;
+    display: flex; flex-direction: column; justify-content: flex-start; text-align: left;
+    flex: 1; /* Permite que el contenido se estire y llene el espacio disponible */
 }
 .service-card .card-content h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #386737; font-weight: 700; }
 .service-card .card-content p { font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.5; }
+.service-card .card-content .button { margin-top: auto; align-self: flex-start; }
+
+/* Permite que las tarjetas estiren al máximo alto de su fila */
+.cards-row-flex > * {
+    display: flex;
+    flex-direction: column;
+}
+.cards-row-flex .service-card {
+    flex: 1; /* Estira la tarjeta para llenar la columna */
+}
 
 /* Tarjetas de Contacto */
 .contact-card {
@@ -916,7 +941,7 @@ body.is-preload #banner:before { opacity: 1; }
 
 /* Espacio debajo de la sección de empleo antes del footer */
 .cta-empleo {
-    padding-bottom: 4rem;
+    padding-bottom: 4rem !important;
 }
 
 @media screen and (min-width: 981px) {
@@ -990,12 +1015,29 @@ body.is-preload #banner:before { opacity: 1; }
     #main .content, .content-box { padding: 2rem; }
     #cta { background-attachment: scroll; }
     #footer .content { flex-wrap: wrap; }
+    
+    /* FIX: Habilitar el colapso de columnas en móvil que faltaba en el grid original */
+    .row > .col-12-medium { width: 100% !important; }
     #footer .content section { width: 50%; }
     #footer .content section:first-child { width: 100%; padding-right: 0; }
     
     /* Grid ajustado */
     .row.gtr-50, .row.gtr-uniform { margin-top: -1.5rem; }
     .row.gtr-50 > *, .row.gtr-uniform > * { padding-top: 1.5rem; }
+    
+    /* Reset de cards para móvil (contacto, empleo) */
+    .row.cards-row {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important; /* Quitar margen negativo de grid */
+        gap: 1.5rem;
+    }
+    .row.cards-row > * {
+        width: 100% !important;
+        padding: 0 !important; /* Quitar padding interno de grid */
+    }
+    /* El gap hace que ya no necesiten margin-bottom extra */
+    .row.cards-row .contact-card { margin-bottom: 0 !important; }
     
     /* Highlights & Testimonials (2 columns) */
     .highlights > *, .testimonials > * { width: calc(50% + 1rem); padding: 1rem; }
@@ -1008,9 +1050,7 @@ body.is-preload #banner:before { opacity: 1; }
     .highlights { justify-content: center; }
     .highlights > :last-child:nth-child(3n + 1) { padding-left: 0; width: 50%; margin-left: 0; }
     .highlights > :last-child:nth-child(2n + 1) { margin-left: 25%; }
-    .feature-section { padding-top: 4rem; }
-    .feature-section .row.gtr-50 > * { padding-top: 2rem; }
-    .feature-section .row.gtr-50 > *:first-child { padding-top: 0; }
+    .feature-section { padding-top: 3rem; padding-bottom: 3rem; }
     .text-right-desktop, .text-left-desktop { text-align: left; }
     .feature-section .col-6:first-child, .feature-section .col-6:last-child { padding-left: 1.5rem; padding-right: 1.5rem; }
     
@@ -1019,24 +1059,35 @@ body.is-preload #banner:before { opacity: 1; }
         display: block !important;
         text-align: center;
         color: #ffffff;
-        margin-bottom: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     .feature-title-desktop {
         display: none !important;
+    }
+    
+    /* Banner de servicios individuales en móvil */
+    #service-banner { padding: 3rem 1.5rem; }
+    #service-banner .service-banner-header {
+        text-align: center !important;
     }
 
     /* Misión y Visión: reordenar (imagen primero, texto después) */
     .feature-section .row.gtr-50.align-items-center {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
     }
     .feature-section .row.gtr-50.align-items-center > [class*="col-"] {
         width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding: 0 !important;
+        margin: 0;
     }
     .feature-section .feature-image { order: 1; }
     .feature-section .feature-text { order: 2; }
+    /* Limpiar márgenes internos para que gap sea uniforme */
+    .feature-section .feature-text p:last-child { margin-bottom: 0; }
     .feature-section .text-right-desktop,
     .feature-section .text-left-desktop {
         text-align: center !important;
@@ -1044,16 +1095,24 @@ body.is-preload #banner:before { opacity: 1; }
 
     /* Espacio debajo del botón de empleo antes del footer */
     .cta-empleo {
-        padding-bottom: 3rem;
+        padding-bottom: 4rem !important;
+    }
+
+    /* Misión y Visión: imágenes más pequeñas y centradas en tablet */
+    .feature-section .feature-image {
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
 
 /* Breakpoint 736px */
 @media screen and (max-width: 736px) {
+    /* FIX: Habilitar el colapso de columnas pequeñas en móvil */
+    .row > .col-12-small { width: 100% !important; }
     h1 { font-size: 2.75rem; line-height: 1.3; }
     h2 { font-size: 1.75rem; line-height: 1.5; }
     h3 { font-size: 1.25rem; }
-    .wrapper { padding: 3rem 0 1rem 0; }
+    .wrapper { padding: 3rem 0 3rem 0; }
     #header > nav > a { padding: 0 0.5rem; }
     #header > nav > a + a[href="#menu"]:last-child { margin-left: 0.25rem; padding-left: 1rem; }
     #header > nav > a:last-child { padding-right: 1rem; }
@@ -1089,14 +1148,15 @@ body.is-preload #banner:before { opacity: 1; }
     /* Valores card titles: remove min-height on mobile so they don't waste space */
     .highlights .content h3 { min-height: auto; }
     
-    .feature-section { padding-top: 1.5rem; padding-bottom: 0.5rem; }
+    .feature-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 
     /* Misión y Visión: título mobile visible, desktop oculto */
     .feature-title-mobile {
         display: block !important;
         text-align: center;
         color: #ffffff;
-        margin-bottom: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     .feature-title-desktop {
         display: none !important;
@@ -1106,15 +1166,19 @@ body.is-preload #banner:before { opacity: 1; }
     .feature-section .row.gtr-50.align-items-center {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
     }
     .feature-section .row.gtr-50.align-items-center > [class*="col-"] {
         width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding: 0 !important;
+        margin: 0;
     }
     /* Imagen siempre primero, texto siempre segundo */
     .feature-section .feature-image { order: 1; }
     .feature-section .feature-text { order: 2; }
+    /* Limpiar márgenes internos para que gap sea uniforme */
+    .feature-section .feature-text p:last-child { margin-bottom: 0; }
     /* Centrar texto en móvil */
     .feature-section .text-right-desktop,
     .feature-section .text-left-desktop {
@@ -1123,7 +1187,13 @@ body.is-preload #banner:before { opacity: 1; }
 
     /* Espacio debajo del botón de empleo antes del footer */
     .cta-empleo {
-        padding-bottom: 3rem;
+        padding-bottom: 4rem !important;
+    }
+
+    /* Misión y Visión: imágenes más pequeñas y centradas en móvil */
+    .feature-section .feature-image {
+        max-width: 380px;
+        margin: 0 auto;
     }
     
     /* Contact cards: add gap between stacked cards */
@@ -1147,11 +1217,11 @@ body.is-preload #banner:before { opacity: 1; }
     html { font-size: 11pt; }
     html, body, #header { min-width: 320px; }
     .inner { max-width: calc(100% - 3rem); }
-    .wrapper { padding: 2rem 0 0.1rem 0; }
+    .wrapper { padding: 2rem 0 2rem 0; }
     #banner p { font-size: 1rem; }
     #main .content, .content-box { padding: 1.5rem; }
     #footer { padding: 2rem 0 0.1rem 0; }
-    .feature-section { padding-top: 1rem; padding-bottom: 0; }
+    .feature-section { padding-top: 2rem; padding-bottom: 2rem; }
     
     /* Banner: ensure minimum height so image shows */
     #banner { min-height: 200px !important; padding: 3rem 1.5rem; }
@@ -1182,6 +1252,17 @@ body.is-preload #banner:before { opacity: 1; }
     
     /* Map: even shorter */
     .map-container iframe { height: 250px !important; }
+    
+    /* Espacio debajo del botón de empleo antes del footer */
+    .cta-empleo {
+        padding-bottom: 3rem !important;
+    }
+
+    /* Misión y Visión: imágenes aún más pequeñas en pantallas chicas */
+    .feature-section .feature-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
 }
 
 /* ==========================================================================
