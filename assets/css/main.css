@@ -911,6 +911,14 @@ body.is-preload #banner:before { opacity: 1; }
 .feature-section h2, .feature-section h3, .feature-section strong { color: #ffffff; }
 .align-items-center { align-items: center; }
 
+/* Títulos mobile ocultos por defecto */
+.feature-title-mobile { display: none; }
+
+/* Espacio debajo de la sección de empleo antes del footer */
+.cta-empleo {
+    padding-bottom: 4rem;
+}
+
 @media screen and (min-width: 981px) {
     .text-right-desktop { text-align: right; }
     .text-left-desktop { text-align: left; }
@@ -1005,6 +1013,39 @@ body.is-preload #banner:before { opacity: 1; }
     .feature-section .row.gtr-50 > *:first-child { padding-top: 0; }
     .text-right-desktop, .text-left-desktop { text-align: left; }
     .feature-section .col-6:first-child, .feature-section .col-6:last-child { padding-left: 1.5rem; padding-right: 1.5rem; }
+    
+    /* Misión y Visión: título mobile visible, desktop oculto */
+    .feature-title-mobile {
+        display: block !important;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+    }
+    .feature-title-desktop {
+        display: none !important;
+    }
+
+    /* Misión y Visión: reordenar (imagen primero, texto después) */
+    .feature-section .row.gtr-50.align-items-center {
+        display: flex;
+        flex-direction: column;
+    }
+    .feature-section .row.gtr-50.align-items-center > [class*="col-"] {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .feature-section .feature-image { order: 1; }
+    .feature-section .feature-text { order: 2; }
+    .feature-section .text-right-desktop,
+    .feature-section .text-left-desktop {
+        text-align: center !important;
+    }
+
+    /* Espacio debajo del botón de empleo antes del footer */
+    .cta-empleo {
+        padding-bottom: 3rem;
+    }
 }
 
 /* Breakpoint 736px */
@@ -1043,12 +1084,47 @@ body.is-preload #banner:before { opacity: 1; }
     .highlights > :nth-child(-n + 2), .testimonials > :nth-child(-n + 2) { padding-top: 1rem; }
     .highlights > :nth-child(-n + 1), .testimonials > :nth-child(-n + 1) { padding-top: 0; }
     .highlights > :nth-child(1n + 1), .testimonials > :nth-child(1n + 1) { width: calc(100% + 1rem); padding-left: 0; padding-right: 0; }
-    .highlights > :last-child { width: calc(100% + 2rem) !important; margin-left: 0 !important; padding-left: 1rem !important; }
+    .highlights > :last-child { width: calc(100% + 1rem) !important; margin-left: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
     
     /* Valores card titles: remove min-height on mobile so they don't waste space */
     .highlights .content h3 { min-height: auto; }
     
     .feature-section { padding-top: 1.5rem; padding-bottom: 0.5rem; }
+
+    /* Misión y Visión: título mobile visible, desktop oculto */
+    .feature-title-mobile {
+        display: block !important;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+    }
+    .feature-title-desktop {
+        display: none !important;
+    }
+
+    /* Misión y Visión: reordenar en móvil (imagen primero, texto después) */
+    .feature-section .row.gtr-50.align-items-center {
+        display: flex;
+        flex-direction: column;
+    }
+    .feature-section .row.gtr-50.align-items-center > [class*="col-"] {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    /* Imagen siempre primero, texto siempre segundo */
+    .feature-section .feature-image { order: 1; }
+    .feature-section .feature-text { order: 2; }
+    /* Centrar texto en móvil */
+    .feature-section .text-right-desktop,
+    .feature-section .text-left-desktop {
+        text-align: center !important;
+    }
+
+    /* Espacio debajo del botón de empleo antes del footer */
+    .cta-empleo {
+        padding-bottom: 3rem;
+    }
     
     /* Contact cards: add gap between stacked cards */
     .contact-card { margin-bottom: 1.5rem; }
